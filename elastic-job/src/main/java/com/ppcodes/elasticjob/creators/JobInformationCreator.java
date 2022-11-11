@@ -30,7 +30,9 @@ public class JobInformationCreator {
             "docker"
     );
 
-    public JobInformationCreator(JobCreatorConfiguration configuration, JobInformationRepository jobInformationRepository, Lorem lorem) {
+    public JobInformationCreator(JobCreatorConfiguration configuration,
+                                 JobInformationRepository jobInformationRepository,
+                                 Lorem lorem) {
         this.configuration = configuration;
         this.jobInformationRepository = jobInformationRepository;
         this.lorem = lorem;

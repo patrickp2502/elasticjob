@@ -21,6 +21,9 @@ public class JobInformation {
     private String title;
     @Field
     private String description;
+    @Field
+    private String technologyTag;
+    @Field
     private String source;
 
 }

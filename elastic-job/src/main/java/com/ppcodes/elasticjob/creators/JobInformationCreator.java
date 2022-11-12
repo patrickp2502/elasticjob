@@ -12,10 +12,7 @@ import org.springframework.data.elasticsearch.client.elc.ElasticsearchTemplate;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.PostConstruct;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
+import java.util.*;
 
 
 @Service
@@ -27,14 +24,6 @@ public class JobInformationCreator {
     private final JobCreatorConfiguration configuration;
     private final JobInformationRepository jobInformationRepository;
     private final Lorem lorem;
-
-    private static final List<String> SPECIAL_WORDS = List.of(
-            "java",
-            "javascript",
-            "html",
-            "pega",
-            "docker"
-    );
 
     @PostConstruct
     public void create() {
@@ -49,15 +38,15 @@ public class JobInformationCreator {
     }
 
     private String getRandomSpecialWord() {
-        int size = SPECIAL_WORDS.size();
+        int size = configuration.getTAGS().size();
         Random random = new Random();
-        int weight = random.nextInt(100);
-        int weightLimit = 0;
+        /* int weight = random.nextInt(100);
+        int weightLimit = 80;
         if (weight > weightLimit) {
             return "";
-        }
+        } */
         int index = random.nextInt(size);
-        return SPECIAL_WORDS.get(index);
+        return configuration.getTAGS().get(index);
 
     }
 
@@ -66,6 +55,7 @@ public class JobInformationCreator {
         return JobInformation.builder()
                 .title(createTitle())
                 .description(createDescription())
+                .technologyTags(Collections.emptySet())
                 .build();
     }
 

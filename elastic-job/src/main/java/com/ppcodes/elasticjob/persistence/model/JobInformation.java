@@ -9,11 +9,14 @@ import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
 import org.springframework.data.elasticsearch.annotations.FieldType;
 
-@Builder
+import java.util.Collections;
+import java.util.Set;
+
 @Document(indexName = "job")
 @ToString
 @JsonSerialize
 @Data
+@Builder
 public class JobInformation {
 
     @Id
@@ -22,8 +25,9 @@ public class JobInformation {
     private String title;
     @Field(type = FieldType.Text)
     private String description;
+    @Builder.Default
     @Field(type = FieldType.Text)
-    private String technologyTag;
+    private Set<String> technologyTags = Collections.emptySet();
     @Field
     private String source;
 

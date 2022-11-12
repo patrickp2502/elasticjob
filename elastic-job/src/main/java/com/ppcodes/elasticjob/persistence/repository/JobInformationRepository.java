@@ -11,12 +11,9 @@ public interface JobInformationRepository extends ElasticsearchRepository<JobInf
 
     List<JobInformation> getAllByDescriptionContaining(String key);
 
-
     @Query("{\"match\": {\"description\": \"?0\"}}")
-    Stream<JobInformation> getAllByTagButTest(String tag);
+    Stream<JobInformation> getAllByDescriptionMatchingWord(String word);
 
-    @Query("{\"match\": {\"constant_score\": {\"filter\": {\"term\": {\"description\": \"?0\" }}}}}")
-    Stream<JobInformation> getAllByTag(String tag);
 
 
 }

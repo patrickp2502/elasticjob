@@ -7,6 +7,7 @@ import lombok.ToString;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.elasticsearch.annotations.Document;
 import org.springframework.data.elasticsearch.annotations.Field;
+import org.springframework.data.elasticsearch.annotations.FieldType;
 
 @Builder
 @Document(indexName = "job")
@@ -17,11 +18,11 @@ public class JobInformation {
 
     @Id
     private String id;
-    @Field
+    @Field(type = FieldType.Text)
     private String title;
-    @Field
+    @Field(type = FieldType.Text)
     private String description;
-    @Field
+    @Field(type = FieldType.Text)
     private String technologyTag;
     @Field
     private String source;

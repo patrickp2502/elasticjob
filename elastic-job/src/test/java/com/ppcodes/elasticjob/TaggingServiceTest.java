@@ -69,11 +69,4 @@ class TaggingServiceTest {
 
     }
 
-
-    @Test
-    void testRepository() {
-        System.out.println("test");
-        List<JobInformation> repositoryMethodResult = repository.getAllByDescriptionMatchingWord("java").toList();
-
-    }
 }

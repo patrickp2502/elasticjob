@@ -13,7 +13,6 @@ import java.util.List;
 @Slf4j
 public class TaggingService {
 
-
     private final JobCreatorConfiguration jobCreatorConfiguration;
     private final JobInformationRepository jobInformationRepository;
 

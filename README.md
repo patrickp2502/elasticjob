@@ -14,7 +14,8 @@ docker run -p 9200:9200 -e "discovery.type=single-node" docker.elastic.co/elasti
 ```
 
 ## deleting elasticsearch index
-``` curl -X DELETE 'http://localhost:9200/job'
+``` 
+curl -X DELETE 'http://localhost:9200/job'
 ```
 
 ## todo: 
